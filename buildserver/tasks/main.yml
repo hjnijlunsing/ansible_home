@@ -1,0 +1,42 @@
+---  
+- name: Essentials (Git,software-properties-common )
+  apt: name={{item}} state=installed
+  with_items:
+       - git
+       - software-properties-common
+       - dos2unix
+
+- name: Add Ansible official GPG key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 93C4A3FD7BB9C367
+
+- name: Add Ansible repository       
+  apt_repository:
+    repo: deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
+    state: present
+
+- name: Install Ansible
+  apt:
+    update_cache: yes
+    name: ansible
+       
+- name: Create a jenkins container
+  docker_container:
+    name: jenkins
+    image: nijlunsing/jenkins-armhf
+    state: started
+    pull: yes
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/opt/var/jenkins_home:/var/jenkins_home"
+      - "/etc/ansible:/etc/ansible"
+    ports: 
+      - "8080:8080"   
+
+- name: add pi to docker group
+  user:
+    name: pi 
+    shell: /bin/bash
+    groups: docker
+    append: yes

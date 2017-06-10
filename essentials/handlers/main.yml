@@ -1,0 +1,7 @@
+---
+- name: reboot
+  command: /sbin/reboot
+  notify: Wait for reboot
+
+- name: Wait for reboot
+  pause: seconds=120

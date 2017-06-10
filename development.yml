@@ -1,0 +1,11 @@
+---
+- hosts: pi2
+  roles:
+  - borgserver
+  - dnsmasq
+  - samba
+  - transmission
+  - openvpn
+  - dpmaster
+  - darkplaces
+  remote_user: pi

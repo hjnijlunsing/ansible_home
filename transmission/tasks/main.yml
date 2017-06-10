@@ -1,0 +1,17 @@
+---
+- name: Add settings.json
+  template: src=settings.json.j2 dest=/opt/etc/transmission-settings.json
+  
+- name: Create a transmission container
+  docker_container:
+    name: transmission
+    image: nijlunsing/transmission-armhf
+    state: started
+    restart: yes
+    volumes:
+      - "/mnt/internal/downloads:/var/lib/transmission-daemon/downloads"
+      - "/opt/etc/transmission-settings.json:/var/lib/transmission-daemon/info/settings.json"
+    ports: 
+      - "9091:9091"
+      - "51413:51413"
+      - "51413:51413/udp"   

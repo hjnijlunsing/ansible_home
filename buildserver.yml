@@ -1,0 +1,5 @@
+---
+- hosts: buildserver
+  roles:
+  - buildserver
+  remote_user: pi

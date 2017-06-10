@@ -1,0 +1,8 @@
+---    
+- name: Create a darkplaces container
+  docker_container:
+    name: darkplaces
+    image: nijlunsing/quake1-armhf
+    state: started
+    ports: 
+      - "26000:26000/udp"   

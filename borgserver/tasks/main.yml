@@ -1,0 +1,13 @@
+---
+- name: Add authorized keys
+  template: src=authorized_keys.j2 dest={{ borg_repository }}/authorized_keys owner=1000 group=1000
+  
+- name: Create a Borg container
+  docker_container:
+    name: rutgerborg
+    image: nijlunsing/borgbackup-server-armhf
+    state: started
+    volumes:
+      - "{{ borg_repository }}/authorized_keys:/home/borg/.ssh/authorized_keys"
+      - "{{ borg_repository }}:/var/backups/borg"
+    ports: "2222:22"

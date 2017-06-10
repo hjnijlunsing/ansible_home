@@ -1,0 +1,32 @@
+---
+- name: Install aptitude
+  apt:
+    update_cache: yes
+    name: aptitude
+
+- name: Update all packages to the latest version
+  apt:
+    upgrade: full
+
+- name: Essentials (Perl, Screen, Mc)
+  apt: name={{item}} state=installed
+  with_items:
+       - perl
+       - screen
+       - mc
+
+- name: check if a reboot is required
+  shell: "[ -f /var/run/reboot-required ]"
+  failed_when: False
+  register: reboot_required
+  changed_when: reboot_required.rc == 0
+  notify: reboot
+       
+- name: Add authorized key
+  lineinfile:
+    path: "/home/{{ ansible_user }}/.ssh/authorized_keys"
+    line: "{{ authorized_key }}"
+
+- name: set timezone
+  timezone:
+    name: Europe/Amsterdam

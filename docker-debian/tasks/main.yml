@@ -1,0 +1,63 @@
+---
+- name: Install Docker Prerequisites
+  apt: name={{item}} state=installed
+  with_items:
+       - apt-transport-https
+       - ca-certificates
+       - curl
+       - gnupg2
+       - software-properties-common
+
+- name: Add Docker’s official GPG key
+  apt_key:
+    url: "https://download.docker.com/linux/debian/gpg"
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    state: present
+    
+- name: Add Docker Repository
+  apt_repository:
+    repo: 'deb [arch=armhf] https://download.docker.com/linux/debian jessie stable'
+    state: present
+    
+- name: Install docker-ce
+  apt:
+    name: docker-ce
+    update_cache: yes
+
+- name: Start Docker
+  service: name=docker state=started
+
+- name: Install python-pip
+  apt:
+    name: python-pip
+
+- name: Upgrade pip
+  pip: name=pip state=latest
+
+- name: Install backports.ssl_match_hostname
+  pip: name=backports.ssl_match_hostname
+
+- name: Install docker-compose
+  pip: name=docker-compose version=1.9.0
+
+- name: Install docker-py
+  pip: name=docker-py
+  
+- name: Create a DockerUI container
+  docker_container:
+    name: dockerui
+    image: hypriot/rpi-dockerui
+    state: started
+    privileged: true
+    volumes: "/var/run/docker.sock:/var/run/docker.sock"
+    ports: "9000:9000"
+
+- name: Install docker-machine
+  get_url:
+    url: "https://github.com/docker/machine/releases/download/v0.11.0/docker-machine-Linux-armhf"
+    dest: "/usr/local/bin/docker-machine"
+    mode: 0766
+    
+- name: Create /opt/etc
+  file: path=/opt/etc state=directory
+ 

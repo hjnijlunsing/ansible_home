@@ -1,0 +1,8 @@
+---  
+- name: Create a dpmaster container
+  docker_container:
+    name: dpmaster
+    image: nijlunsing/dpmaster-armhf
+    state: started
+    ports: 
+      - "27950:27950"

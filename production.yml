@@ -1,0 +1,10 @@
+---
+- hosts: cubox
+  roles:
+  - borgserver
+  - dnsmasq
+  - samba
+  - transmission
+  - openvpn
+  - darkplaces
+  remote_user: debian

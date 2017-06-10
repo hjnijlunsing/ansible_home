@@ -1,0 +1,31 @@
+---  
+- name: download hosts
+  get_url:
+    url: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+    dest: /etc/hosts
+    force: yes
+    mode: 0644
+    
+- name: Add hosts
+  blockinfile:
+    block: "{{ lookup('file', './files/hosts') }}"
+    dest: /etc/hosts
+
+- name: Add resolv.conf
+  copy:
+    src: resolv.conf
+    dest: /opt/etc/resolv.conf
+    
+- name: Create a dnsmasq container
+  docker_container:
+    name: dnsmasq
+    image: nijlunsing/dnsmasq-armhf
+    state: started
+    restart: yes
+    volumes:
+      - "/etc/hosts:/etc/hosts"
+      - "/opt/etc/resolv.conf:/etc/resolv.conf"
+    ports: 
+      - "{{ ansible_default_ipv4.address }}:53:53"
+      - "{{ ansible_default_ipv4.address }}:53:53/udp"
+      - "{{ ansible_default_ipv4.address }}:67:67/udp"      

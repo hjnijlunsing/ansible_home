@@ -1,0 +1,16 @@
+---
+- name: Creates mount points
+  file: path={{item}} state=directory
+  with_items:
+       - /mnt/internal
+       - /mnt/mybook
+ 
+- name: Mount disks
+  mount:
+    path: /mnt/{{item}}
+    src: LABEL={{item}}
+    fstype: ext4
+    state: mounted
+  with_items:
+       - internal
+       - mybook

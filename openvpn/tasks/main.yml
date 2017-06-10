@@ -1,0 +1,11 @@
+---
+- name: Create a openvpn container
+  docker_container:
+    name: openvpn
+    image: nijlunsing/openvpn-armhf
+    state: started
+    privileged: yes
+    volumes:
+      - "/mnt/internal/volumes/openvpn:/etc/openvpn"
+    ports: 
+      - "1194:1194/udp"   

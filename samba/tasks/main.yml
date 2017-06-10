@@ -1,0 +1,16 @@
+---
+- name: Add smb.conf
+  template: src=smb.conf.j2 dest=/opt/etc/smb.conf
+  
+- name: Create a Samba container
+  docker_container:
+    name: samba
+    image: nijlunsing/samba-armhf
+    state: started
+    volumes:
+      - "/mnt:/mnt"
+      - "/opt/etc/smb.conf:/etc/samba/smb.conf"
+    ports: 
+      - "139:139"
+      - "445:445"
+   
