@@ -8,10 +8,15 @@
     image: nijlunsing/transmission-armhf
     state: started
     restart: yes
+    pull: yes
     volumes:
       - "/mnt/internal/downloads:/var/lib/transmission-daemon/downloads"
       - "/opt/etc/transmission-settings.json:/var/lib/transmission-daemon/info/settings.json"
     ports: 
       - "9091:9091"
       - "51413:51413"
-      - "51413:51413/udp"   
+      - "51413:51413/udp"  
+
+- name: Test Transmission port
+  wait_for:
+    port: 9091
