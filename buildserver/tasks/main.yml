@@ -34,6 +34,15 @@
     ports: 
       - "8080:8080"   
 
+- name: Create a watchtower container
+  docker_container:
+    name: watchtower
+    image: v2tec/watchtower:armhf-latest
+    state: started
+    pull: yes
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
 - name: add pi to docker group
   user:
     name: pi 
