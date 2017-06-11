@@ -13,4 +13,7 @@
     ports: 
       - "139:139"
       - "445:445"
-   
+
+- name: Test Samba port
+  wait_for:
+    port: 139
