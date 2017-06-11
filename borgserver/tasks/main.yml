@@ -7,7 +7,13 @@
     name: rutgerborg
     image: nijlunsing/borgbackup-server-armhf
     state: started
+    pull: yes
     volumes:
       - "{{ borg_repository }}/authorized_keys:/home/borg/.ssh/authorized_keys"
       - "{{ borg_repository }}:/var/backups/borg"
+      - "{{ borg_repository }}/ssh:/etc/ssh"
     ports: "2222:22"
+
+- name: Test Borg Server port
+  wait_for:
+    port: 2222
