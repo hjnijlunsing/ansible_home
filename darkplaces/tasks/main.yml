@@ -4,5 +4,6 @@
     name: darkplaces
     image: nijlunsing/quake1-armhf
     state: started
+    pull: yes
     ports: 
       - "26000:26000/udp"   
