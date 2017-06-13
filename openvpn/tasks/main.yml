@@ -5,6 +5,7 @@
     image: nijlunsing/openvpn-armhf
     state: started
     privileged: yes
+    pull: yes
     volumes:
       - "/mnt/internal/volumes/openvpn:/etc/openvpn"
     ports: 
