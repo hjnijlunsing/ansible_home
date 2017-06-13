@@ -10,3 +10,9 @@
       - "/mnt/internal/volumes/openvpn:/etc/openvpn"
     ports: 
       - "1194:1194/udp"   
+
+- name: Wait for 3 seconds
+  pause: seconds=3
+
+- name: Test if container is running
+  shell: docker inspect -f {{.State.Running}} openvpn
