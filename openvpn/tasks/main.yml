@@ -15,4 +15,4 @@
   pause: seconds=3
 
 - name: Test if container is running
-  shell: docker inspect -f {{ '{{' }}.State.Running{{ '}}' }} notexistingcontainer
+  shell: docker inspect -f {{ '{{' }}.State.Running{{ '}}' }} watchtower
