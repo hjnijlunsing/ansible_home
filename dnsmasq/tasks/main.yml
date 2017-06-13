@@ -29,3 +29,11 @@
       - "{{ ansible_default_ipv4.address }}:53:53"
       - "{{ ansible_default_ipv4.address }}:53:53/udp"
       - "{{ ansible_default_ipv4.address }}:67:67/udp"      
+      
+- name: Wait for 3 seconds
+  pause: seconds=3
+
+- name: Test if container is running
+  shell: docker inspect -f {{ '{{' }}.State.Running{{ '}}' }} dnsmasq
+  register: container_result
+  failed_when: "'false' in container_result.stdout"

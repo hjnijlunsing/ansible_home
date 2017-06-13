@@ -7,3 +7,11 @@
     pull: yes
     ports: 
       - "26000:26000/udp"   
+      
+- name: Wait for 3 seconds
+  pause: seconds=3
+
+- name: Test if container is running
+  shell: docker inspect -f {{ '{{' }}.State.Running{{ '}}' }} darkplaces
+  register: container_result
+  failed_when: "'false' in container_result.stdout"
