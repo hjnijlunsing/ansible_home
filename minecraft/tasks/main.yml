@@ -1,0 +1,21 @@
+---    
+- name: Create a minecraft container
+  docker_container:
+    name: minecraft
+    image: kroonwijk/rpi-minecraft
+    state: started
+    pull: yes
+    volumes:
+      - "/etc/hosts:/etc/hosts"
+      - "/mnt/internal/volumes/minecraft:/data"
+    ports: 
+      - "25565:25565/udp"   
+      - "25565:25565"  
+      
+- name: Wait for 3 seconds
+  pause: seconds=3
+
+- name: Test if container is running
+  shell: docker inspect -f {{ '{{' }}.State.Running{{ '}}' }} minecraft
+  register: container_result
+  failed_when: "'false' in container_result.stdout"
