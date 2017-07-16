@@ -2,7 +2,7 @@
 - name: Create a minecraft container
   docker_container:
     name: minecraft
-    image: kroonwijk/rpi-minecraft
+    image: nijlunsing/minecraft-armhf
     state: started
     pull: yes
     volumes:
