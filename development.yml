@@ -6,7 +6,6 @@
   - samba
   - transmission
   - openvpn
-  - dpmaster
   - darkplaces
-  - minecraft
+  - openhab
   remote_user: pi
