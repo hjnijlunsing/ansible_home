@@ -8,6 +8,7 @@
     image: nijlunsing/samba-armhf
     state: started
     pull: yes
+    network_mode: host
     volumes:
       - "/mnt:/mnt"
       - "/opt/etc/smb.conf:/etc/samba/smb.conf"
