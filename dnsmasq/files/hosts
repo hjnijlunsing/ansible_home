@@ -19,11 +19,13 @@
 192.168.2.32	chromecast.oudeweg.lan	chromecast
 192.168.2.33	lisette.oudeweg.lan	lisette
 192.168.2.34	laptop.oudeweg.lan	laptop
-192.168.2.35	quira.oudeweg.lan	quira
 192.168.2.36	shield.oudeweg.lan	shield
 192.168.2.37	accenture-lan.oudeweg.lan	accenture-lan
 192.168.2.38	amdc60.oudeweg.lan	amdc60
 192.168.2.39    buildserver.oudeweg.lan buildserver
-192.168.2.40    shield.oudeweg.lan shield
+192.168.2.40    androidtv.oudeweg.lan androidtv
+192.168.2.41	harmjan.oudeweg.lan	harmjan
+192.168.2.42	quira.oudeweg.lan	quira
+192.168.2.43	bto.oudeweg.lan	bto
 
 ::1		localhost.localdomain	localhost
