@@ -9,6 +9,8 @@
     state: started
     pull: yes
     network_mode: host
+    environment:
+      - NMBD=1
     volumes:
       - "/mnt:/mnt"
       - "/opt/etc/smb.conf:/etc/samba/smb.conf"
