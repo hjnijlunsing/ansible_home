@@ -14,6 +14,7 @@
        - perl
        - screen
        - mc
+       - p7zip
 
 - name: check if a reboot is required
   shell: "[ -f /var/run/reboot-required ]"
