@@ -1,4 +1,10 @@
 ---
+- name: Add Debian jessie repo
+  apt_repository: state=present repo="{{ item }}"
+  with_items:
+    - deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
+    - deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
+
 - name: Install aptitude
   apt:
     update_cache: yes
@@ -7,12 +13,6 @@
 - name: Update all packages to the latest version
   apt:
     upgrade: full
-
-- name: Add Debian jessie repo
-  apt_repository: state=present repo="{{ item }}"
-  with_items:
-    - deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
-    - deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
     
 - name: Essentials (Perl, Screen, Mc, P7Zip, Unrar)
   apt: name={{item}} state=installed
