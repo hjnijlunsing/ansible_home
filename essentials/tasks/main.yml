@@ -2,9 +2,9 @@
 - name: Add Debian jessie repo
   apt_repository: state=present repo="{{ item }}"
   with_items:
-    - deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
-    - deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
-
+    - deb [arch=armhf] http://ftp.us.debian.org/debian/ jessie main contrib non-free
+    - deb-src [arch=armhf] http://ftp.us.debian.org/debian/ jessie main contrib non-free
+ 
 - name: Install aptitude
   apt:
     update_cache: yes
