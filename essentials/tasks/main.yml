@@ -1,10 +1,4 @@
 ---
-- name: Add Debian jessie repo
-  apt_repository: state=present repo="{{ item }}"
-  with_items:
-    - deb [arch=armhf] http://ftp.us.debian.org/debian/ jessie main contrib non-free
-    - deb-src [arch=armhf] http://ftp.us.debian.org/debian/ jessie main contrib non-free
- 
 - name: Install aptitude
   apt:
     update_cache: yes
@@ -14,14 +8,13 @@
   apt:
     upgrade: full
     
-- name: Essentials (Perl, Screen, Mc, P7Zip, Unrar)
+- name: Essentials (Perl, Screen, Mc, P7Zip)
   apt: name={{item}} state=installed
   with_items:
        - perl
        - screen
        - mc
        - p7zip
-       - unrar
 
 - name: check if a reboot is required
   shell: "[ -f /var/run/reboot-required ]"
