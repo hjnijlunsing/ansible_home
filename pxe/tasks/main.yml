@@ -1,0 +1,8 @@
+---
+- name: Create a PXE container
+  docker_container:
+    name: pxe
+    image: nijlunsing/pxe-armhf
+    state: started
+    pull: yes
+    network_mode: host

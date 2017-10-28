@@ -8,4 +8,5 @@
   - openvpn
   - darkplaces
   - openhab
+  - pxe
   remote_user: pi
