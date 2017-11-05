@@ -8,9 +8,10 @@
   apt:
     upgrade: full
     
-- name: Essentials (Perl, Screen, Mc, P7Zip)
+- name: Essentials (Debian-goodies, Perl, Screen, Mc, P7Zip)
   apt: name={{item}} state=installed
   with_items:
+       - debian-goodies
        - perl
        - screen
        - mc
