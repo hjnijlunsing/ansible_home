@@ -263,11 +263,13 @@
 	comment = To boldly go...
 	public = yes
 	path = /mnt/intenso/startrek
+	strict locking = no
 
 [downloads]
 	comment = Transmission Downloads
 	path = /mnt/internal/downloads
 	public = yes
+	strict locking = no
 
 [dropzone]
 	public = yes
@@ -275,26 +277,32 @@
 	writeable = yes
 	force user = nobody
 	path = /mnt/internal/dropzone
+	strict locking = no
 
 [boekenzolder]
 	path = /mnt/mybook/boekenzolder
 	public = yes
+	strict locking = no
 
 [wijfschijf]
 	public = yes
 	comment = Wijf Schijf
 	path = /mnt/mybook/wijfschijf
-
+    strict locking = no
+	
 [kids]
 	path = /mnt/mybook/kids
 	comment = Kids entertainment
 	public = yes
-
+    strict locking = no
+	
 [mediatheek]
 	public = yes
 	path = /mnt/internal/mediatheek
 	comment = Mediatheek
+	strict locking = no
 
 [software]
 	public = yes
 	path = /mnt/mybook/software
+    strict locking = no
