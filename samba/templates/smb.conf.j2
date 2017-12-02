@@ -22,7 +22,8 @@
 #======================= Global Settings =======================
 
 [global]
-
+   socket options = TCP_NODELAY
+   
 ## Browsing/Identification ###
 
 # Change this to the workgroup/NT-domain name your Samba server will part of
@@ -258,12 +259,6 @@
 # to the drivers directory for these users to have write rights in it
 ;   write list = root, @lpadmin
 
-
-[startrek]
-	comment = To boldly go...
-	public = yes
-	path = /mnt/intenso/startrek
-	strict locking = no
 
 [downloads]
 	comment = Transmission Downloads
