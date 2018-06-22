@@ -1,0 +1,5 @@
+---
+- hosts: buildserver_ubuntu
+  roles:
+  - buildserver_ubuntu
+  remote_user: user

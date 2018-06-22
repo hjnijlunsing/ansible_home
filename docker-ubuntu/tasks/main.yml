@@ -1,0 +1,43 @@
+---    
+- name: Install docker-ce
+  apt:
+    name: docker.io
+    update_cache: yes
+
+- name: Start Docker
+  service: name=docker state=started
+
+- name: Install python-pip
+  apt:
+    name: python-pip
+
+- name: Upgrade pip
+  pip: name=pip state=latest
+
+- name: Install backports.ssl_match_hostname
+  pip: name=backports.ssl_match_hostname
+
+- name: Install docker-compose
+  pip: name=docker-compose version=1.9.0
+
+- name: Install docker-py
+  pip: name=docker-py
+  
+- name: Create a DockerUI container
+  docker_container:
+    name: dockerui
+    image: hypriot/rpi-dockerui
+    state: started
+    privileged: true
+    volumes: "/var/run/docker.sock:/var/run/docker.sock"
+    ports: "9000:9000"
+
+- name: Install docker-machine
+  get_url:
+    url: "https://github.com/docker/machine/releases/download/v0.11.0/docker-machine-Linux-armhf"
+    dest: "/usr/local/bin/docker-machine"
+    mode: 0766
+    
+- name: Create /opt/etc
+  file: path=/opt/etc state=directory
+ 
