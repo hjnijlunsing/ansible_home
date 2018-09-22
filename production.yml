@@ -6,5 +6,5 @@
   - samba
   - transmission
   - openvpn
-  - darkplaces
+  - homeassistant
   remote_user: debian

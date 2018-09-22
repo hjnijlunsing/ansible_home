@@ -1,0 +1,16 @@
+---
+- name: Create a homeassistant container
+  docker_container:
+    name: home-assistant
+    image: homeassistant/raspberrypi3-homeassistant
+    state: started
+    pull: yes
+    network_mode: host
+    volumes:
+      - "/mnt/internal/volumes/homeassistant:/config"
+      - "/mnt/internal/volumes/openhab:/etc/openhab"
+      - "/etc/localtime:/etc/localtime:ro"
+
+- name: Test Homeassistant port
+  wait_for:
+    port: 8123
