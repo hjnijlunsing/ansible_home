@@ -4,12 +4,15 @@
 
 #<ip-address>	<hostname.domain.org>	<hostname>
 127.0.0.1	localhost.localdomain	localhost
+127.0.0.1 linux.localdomain linux
+192.168.2.20 hassio.local
+192.168.2.20 dev.kladz.nl
 192.168.2.1	tplink.oudeweg.lan	tplink
 192.168.2.4 sweex.oudeweg.lan sweex
-192.168.2.20    alarm.oudeweg.lan       alarm
-192.168.2.21    pi2.oudeweg.lan	pi2
-192.168.2.24    ipmi.oudeweg.lan        ipmi
-192.168.2.25    supermicro.oudeweg.lan  supermicro 
+192.168.2.20  alarm.oudeweg.lan       alarm
+192.168.2.21  pi2.oudeweg.lan	pi2
+192.168.2.24  ipmi.oudeweg.lan        ipmi
+192.168.2.25  supermicro.oudeweg.lan  supermicro
 192.168.2.26	osmc.oudeweg.lan	osmc
 192.168.2.27	ipod.oudeweg.lan	ipod
 192.168.2.28	printer.oudeweg.lan	printer
@@ -22,10 +25,26 @@
 192.168.2.36	shield.oudeweg.lan	shield
 192.168.2.37	accenture-lan.oudeweg.lan	accenture-lan
 192.168.2.38	amdc60.oudeweg.lan	amdc60
-192.168.2.39    buildserver.oudeweg.lan buildserver
-192.168.2.40    androidtv.oudeweg.lan androidtv
+192.168.2.39  buildserver.oudeweg.lan buildserver
+192.168.2.40  androidtv.oudeweg.lan androidtv
 192.168.2.41	harmjan.oudeweg.lan	harmjan
 192.168.2.42	quira.oudeweg.lan	quira
 192.168.2.43	bto.oudeweg.lan	bto
+192.168.2.44  sonos1.oudeweg.lan sonos1
+192.168.2.45  sonos2.oudeweg.lan sonos2
+192.168.2.46  sonos3.oudeweg.lan sonos3
+192.168.2.47  sonos4.oudeweg.lan sonos4
+192.168.2.48  charlene.oudeweg.lan charlene
+192.168.2.49  samsung.oudeweg.lan samsung
+192.168.2.50  acer.oudeweg.lan acer
+192.168.2.51  shieldtablet.oudeweg.lan shieldtablet
+192.168.2.52  max.oudeweg.lan max
+192.168.2.53  david.oudeweg.lan david
+192.168.2.54  xbox360.oudeweg.lan xbox360
+192.168.2.55  kladz.oudeweg.lan kladz
+192.168.2.56  openmqtt.oudeweg.lan openmqtt
+192.168.2.57  sonoff.oudeweg.lan sonoff
+192.168.2.58  samsungtablet.oudeweg.lan samsungtablet
+192.168.2.59  diegotablet.oudeweg.lan diegotablet
 
 ::1		localhost.localdomain	localhost
