@@ -1,6 +1,7 @@
 ---
 - hosts: cubox
   roles:
+  - buildserver
   - borgserver
   - dnsmasq
   - samba
